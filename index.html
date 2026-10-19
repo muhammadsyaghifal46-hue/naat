@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النعت وأنواعه - مَادَّةٌ وَلُعْبَةٌ تَعْلِيمِيَّةٌ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f3f4f6; }
+        .font-arabic { font-family: 'Amiri', serif; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-sky-600 text-white p-2 rounded-xl text-xl font-bold">📚</div>
+                <div>
+                    <h1 class="text-xl font-extrabold text-sky-900 font-arabic">النَّعْتُ وَأَنْوَاعُهُ</h1>
+                    <p class="text-xs text-slate-500">Materi & Game Edukasi Interaktif Bahasa Arab</p>
+                </div>
+            </div>
+
+            <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
+                <button id="btn-tab-materi" onclick="switchTab('materi')" class="px-5 py-2 rounded-lg text-sm font-bold transition bg-sky-600 text-white shadow-sm">
+                    📖 1. Materi Pembelajaran
+                </button>
+                <button id="btn-tab-game" onclick="switchTab('game')" class="px-5 py-2 rounded-lg text-sm font-bold transition text-slate-600 hover:text-slate-900">
+                    🎮 2. Permainan & Roda Acak
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <!-- TAB 1: MATERI PEMBELAJARAN -->
+        <div id="tab-materi" class="block space-y-6">
+            <div class="bg-gradient-to-r from-sky-600 to-indigo-700 rounded-3xl p-6 md:p-8 text-white shadow-xl">
+                <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Materi Utama</span>
+                <h2 class="text-3xl md:text-5xl font-black font-arabic mt-3 mb-2">النَّعْتُ وَأَنْوَاعُهُ</h2>
+                <p class="text-sky-100 text-lg md:text-xl font-arabic">
+                    هُوَ تَابِعٌ يُذْكَرُ بَعْدَ اسْمٍ (مَنْعُوتٍ - مَوْصُوفٍ) لِبَيَانِ صِفَةٍ مِنْ صِفَاتِهِ.
+                </p>
+            </div>
+
+            <!-- 3 Jenis Na'at Cards -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 1. Na'at Mufrad -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">النوع الأول</span>
+                    <h3 class="text-2xl font-bold font-arabic text-emerald-900 my-2">النَّعْتُ الْمُفْرَدُ</h3>
+                    <p class="text-slate-600 text-sm font-arabic mb-4 bg-slate-50 p-3 rounded-lg">هُوَ مَا لَيْسَ جُمْلَةً وَلَا شِبْهَ جُمْلَةٍ.</p>
+                    <ul class="space-y-2 font-arabic text-lg">
+                        <li class="bg-emerald-50 p-2 rounded-lg">• أَكَلْتُ الطَّعَامَ <span class="font-bold text-emerald-600 underline">اللَّذِيذَ</span></li>
+                        <li class="bg-emerald-50 p-2 rounded-lg">• رَأَيْتُ رَجُلًا <span class="font-bold text-emerald-600 underline">قَوِيًّا</span></li>
+                    </ul>
+                </div>
+
+                <!-- 2. Na'at Jumlah -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+                    <span class="bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full">النوع الثاني</span>
+                    <h3 class="text-2xl font-bold font-arabic text-sky-900 my-2">النَّعْتُ الْجُمْلَةُ</h3>
+                    <p class="text-slate-600 text-sm font-arabic mb-4 bg-slate-50 p-3 rounded-lg">يَكُونُ النَّعْتُ جُمْلَةً اسْمِيَّةً أَوْ فِعْلِيَّةً.</p>
+                    <div class="space-y-2 font-arabic text-md">
+                        <div class="bg-sky-50 p-2 rounded-lg">
+                            <span class="text-xs font-bold text-sky-700 block">(أ) اسْمِيَّةٌ:</span>
+                            • رَأَيْتُ وَلَدًا <span class="font-bold text-sky-600 underline">وَجْهُهُ جَمِيلٌ</span>
+                        </div>
+                        <div class="bg-sky-50 p-2 rounded-lg">
+                            <span class="text-xs font-bold text-sky-700 block">(ب) فِعْلِيَّةٌ:</span>
+                            • رَأَيْتُ أُسْتَاذًا <span class="font-bold text-sky-600 underline">يَكْتُبُ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Na'at Syibhul Jumlah -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+                    <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">النوع الثالث</span>
+                    <h3 class="text-2xl font-bold font-arabic text-purple-900 my-2">النَّعْتُ شِبْهُ الْجُمْلَةِ</h3>
+                    <p class="text-slate-600 text-sm font-arabic mb-4 bg-slate-50 p-3 rounded-lg">يَكُونُ شِبْهَ جُمْلَةٍ جَارٌّ وَمَجْرُورٌ أَوْ ظَرْفًا.</p>
+                    <div class="space-y-2 font-arabic text-md">
+                        <div class="bg-purple-50 p-2 rounded-lg">
+                            <span class="text-xs font-bold text-purple-700 block">(أ) جَارٌّ وَمَجْرُورٌ:</span>
+                            • رَأَيْتُ وَلَدًا <span class="font-bold text-purple-600 underline">فِي الْمَسْجِدِ</span>
+                        </div>
+                        <div class="bg-purple-50 p-2 rounded-lg">
+                            <span class="text-xs font-bold text-purple-700 block">(ب) ظَرْفٌ:</span>
+                            • رَأَيْتُ عُصْفُورًا <span class="font-bold text-purple-600 underline">فَوْقَ الشَّجَرَةِ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kaidah Table -->
+            <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                <h3 class="text-xl font-bold font-arabic text-amber-900 mb-4">⚙️ قَاعِدَةٌ: النَّعْتُ يَتْبَعُ الْمَنْعُوتَ فِي:</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center font-arabic">
+                    <div class="bg-white p-3 rounded-xl shadow-sm">التَّعْرِيفِ وَالتَّنْكِيرِ</div>
+                    <div class="bg-white p-3 rounded-xl shadow-sm">الْإِفْرَادِ وَالتَّثْنِيَةِ وَالْجَمْعِ</div>
+                    <div class="bg-white p-3 rounded-xl shadow-sm">التَّذْكِيرِ وَالتَّأْنِيثِ</div>
+                    <div class="bg-white p-3 rounded-xl shadow-sm">الْإِعْرَابِ</div>
+                </div>
+            </div>
+
+            <div class="text-center py-4">
+                <button onclick="switchTab('game')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold text-lg px-8 py-3 rounded-2xl shadow-lg">
+                    🚀 Lanjut ke Permainan & Roda Acak
+                </button>
+            </div>
+        </div>
+        <!-- TAB 2: GAME & RODA ACAK -->
+        <div id="tab-game" class="hidden space-y-6">
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Side: Spinner Wheel -->
+                <div class="lg:col-span-5 bg-white rounded-3xl p-6 shadow-md border border-slate-200 flex flex-col items-center">
+                    <div class="w-full flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-slate-800 font-arabic">🎡 عَجَلَةُ الأَسْمَاءِ</h3>
+                        <button onclick="openNameModal()" class="text-xs bg-slate-100 text-slate-700 font-bold px-3 py-1.5 rounded-lg border font-arabic">✏️ تَعْدِيلُ الأَسْمَاءِ</button>
+                    </div>
+
+                    <div class="relative my-4">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[25px] border-t-red-500"></div>
+                        <canvas id="wheelCanvas" width="320" height="320" class="max-w-full"></canvas>
+                        <button id="spinBtn" onclick="spinWheel()" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-amber-400 text-amber-950 font-black rounded-full border-4 border-white shadow-lg flex items-center justify-center text-sm font-arabic z-10">أَدِرْ</button>
+                    </div>
+
+                    <div class="bg-amber-50 text-amber-900 border border-amber-200 text-xs p-3 rounded-xl w-full text-center font-arabic">
+                        👈 أَدِرِ العَجَلَةَ لِاخْتِيَارِ الطَّالِبِ الَّذِي سَيُجِيبُ!
+                    </div>
+                </div>
+
+                <!-- Right Side: Quiz Interactive -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 shadow-md border border-slate-200 flex flex-col justify-between min-h-[500px]">
+                    <div>
+                        <div class="flex items-center justify-between border-b pb-4 mb-4">
+                            <span class="bg-sky-100 text-sky-800 font-bold px-3 py-1 rounded-full text-xs font-arabic">
+                                السُّؤَالُ <span id="current-q-num">1</span> مِنْ 20
+                            </span>
+                            <div class="text-sm font-bold text-slate-600">النقاط: <span id="score-val" class="text-emerald-600 text-base">0</span></div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 mb-6 justify-center" id="q-dots"></div>
+
+                        <div class="bg-sky-50 border border-sky-100 rounded-2xl p-6 mb-6 text-center">
+                            <h3 id="question-text" class="text-2xl font-bold font-arabic text-slate-900">Loading...</h3>
+                        </div>
+
+                        <div id="options-container" class="space-y-3 font-arabic text-lg"></div>
+
+                        <div id="explanation-box" class="hidden mt-4 p-4 rounded-xl text-sm border font-arabic"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t pt-4 mt-6">
+                        <button id="prev-btn" onclick="prevQuestion()" class="px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-xl disabled:opacity-40">السُّؤَالُ السَّابِقُ ⬅️</button>
+                        <button id="next-btn" onclick="nextQuestion()" class="px-5 py-2 bg-sky-600 text-white text-xs font-bold rounded-xl">➡️ السُّؤَالُ التَّالِي</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Winner -->
+    <div id="winnerModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border-4 border-amber-400">
+            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3 text-3xl">🏆</div>
+            <p class="text-xs font-bold text-amber-600 font-arabic">الطَّالِبُ المُمَيَّزُ</p>
+            <h3 id="winnerName" class="text-3xl font-black text-slate-900 mb-2 font-arabic">Salsa</h3>
+            <p class="text-slate-500 text-sm mb-6 font-arabic">تَفَضَّلْ بِالإِجَابَةِ عَنِ السُّؤَالِ! 🎉</p>
+            <div class="flex flex-col gap-2">
+                <button onclick="closeWinnerModal()" class="w-full bg-sky-600 text-white font-bold py-2.5 rounded-xl text-sm font-arabic">مُتَابَعَةٌ (Lanjutkan)</button>
+                <button onclick="removeSelectedStudent()" class="w-full bg-rose-100 text-rose-700 font-bold py-2 rounded-xl text-xs font-arabic border border-rose-300">🗑️ حَذْفُ الاسْمِ (Hapus Nama)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Names -->
+    <div id="nameModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl font-arabic">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">تَعْدِيلُ أَسْمَاءِ الطُّلَّابِ</h3>
+            <textarea id="namesInput" rows="6" class="w-full border rounded-xl p-3 text-slate-800 text-sm mb-4 font-sans"></textarea>
+            <div class="flex justify-end gap-2">
+                <button onclick="closeNameModal()" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-bold rounded-xl">إِلْغَاءٌ</button>
+                <button onclick="saveNames()" class="px-5 py-2 bg-sky-600 text-white text-xs font-bold rounded-xl">حَفِظَ</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            { q: "١. مَا هُوَ النَّعْتُ؟", options: ["أ. تَابِعٌ يُذْكَرُ بَعْدَ اسْمٍ لِبَيَانِ صِفَةٍ مِنْ صِفَاتِهِ", "ب. فِعْلٌ يَدُلُّ عَلَى حَدَثٍ", "ج. حَرْفٌ مِنْ حُرُوفِ الْجَرِّ"], correct: 0, exp: "النَّعْتُ هُوَ تَابِعٌ يَتْبَعُ مَا قَبْلَهُ (الْمَنْعُوتَ) لِيُبَيِّنَ صِفَةً مِنْ صِفَاتِهِ." },
+            { q: "٢. مَا أَنْوَاعُ النَّعْتِ؟", options: ["أ. نَعْتٌ مَرْفُوعٌ وَمَنْصُوبٌ فَقَطْ", "ب. نَعْتٌ مُفْرَدٌ، وَنَعْتُ الْجُمْلَةِ، وَنَعْتُ شِبْهِ الْجُمْلَةِ", "ج. نَعْتٌ مَاضٍ وَمُضَارِعٌ"], correct: 1, exp: "أَنْوَاعُ النَّعْتِ ثَلَاثَةٌ: مُفْرَدٌ، وَجُمْلَةٌ، وَشِبْهُ جُمْلَةٍ." },
+            { q: "٣. مَا النَّعْتُ الْمُفْرَدُ؟", options: ["أ. مَا كَانَ جُمْلَةً فِعْلِيَّةً", "ب. مَا كَانَ شِبْهَ جُمْلَةٍ", "ج. مَا لَيْسَ جُمْلَةً وَلَا شِبْهَ جُمْلَةٍ"], correct: 2, exp: "النَّعْتُ الْمُفْرَدُ هُوَ مَا لَيْسَ جُمْلَةً وَلَا شِبْهَ جُمْلَةٍ." },
+            { q: "٤. أَيُّ الْجُمَلِ تَحْتَوِي عَلَى نَعْتٍ مُفْرَدٍ؟", options: ["أ. أَكَلْتُ الطَّعَامَ اللَّذِيذَ", "ب. رَأَيْتُ طَالِبًا يَكْتُبُ", "ج. رَأَيْتُ طَالِبًا فِي الْفَصْلِ"], correct: 0, exp: "«اللَّذِيذَ» نَعْتٌ مُفْرَدٌ." },
+            { q: "٥. أَيْنَ النَّعْتُ فِي جُمْلَةِ «أَكَلْتُ الطَّعَامَ اللَّذِيذَ»؟", options: ["أ. أَكَلْتُ", "ب. الطَّعَامَ", "ج. اللَّذِيذَ"], correct: 2, exp: "«اللَّذِيذَ» هُوَ النَّعْتُ (الصِّفَةُ)." },
+            { q: "٦. مَا النَّعْتُ الْجُمْلَةُ؟", options: ["أ. نَعْتٌ يَكُونُ كَلِمَةً وَاحِدَةً", "ب. نَعْتٌ يَكُونُ جُمْلَةً اسْمِيَّةً أَوْ فِعْلِيَّةً", "ج. نَعْتٌ يَكُونُ حَرْفَ جَرٍّ فَقَطْ"], correct: 1, exp: "النَّعْتُ الْجُمْلَةُ إِمَّا جُمْلَةٌ اسْمِيَّةٌ أَوْ فِعْلِيَّةٌ." },
+            { q: "٧. أَيُّ الْجُمَلِ تَحْتَوِي عَلَى نَعْتٍ جُمْلَةٍ اسْمِيَّةٍ؟", options: ["أ. رَأَيْتُ طَالِبًا يَكْتُبُ", "ب. رَأَيْتُ رَجُلًا فِي الْمَسْجِدِ", "ج. رَأَيْتُ وَلَدًا وَجْهُهُ جَمِيلٌ"], correct: 2, exp: "«وَجْهُهُ جَمِيلٌ» جُمْلَةٌ اسْمِيَّةٌ." },
+            { q: "٨. أَيُّ الْجُمَلِ تَحْتَوِي عَلَى نَعْتٍ جُمْلَةٍ فِعْلِيَّةٍ؟", options: ["أ. رَأَيْتُ طَالِبًا يَضْحَكُ", "ب. رَأَيْتُ وَلَدًا وَجْهُهُ جَمِيلٌ", "ج. رَأَيْتُ رَجُلًا فِي الْغَابَةِ"], correct: 0, exp: "«يَضْحَكُ» جُمْلَةٌ فِعْلِيَّةٌ." },
+            { q: "٩. فِي جُمْلَةِ «رَأَيْتُ أُسْتَاذًا يَكْتُبُ»، مَا النَّعْتُ؟", options: ["أ. رَأَيْتُ", "ب. أُسْتَاذًا", "ج. يَكْتُبُ"], correct: 2, exp: "«يَكْتُبُ» هُوَ النَّعْتُ (جُمْلَةٌ فِعْلِيَّةٌ)." },
+            { q: "١٠. مَا النَّعْتُ شِبْهُ الْجُمْلَةِ؟", options: ["أ. مَا يَكُونُ جُمْلَةً اسْمِيَّةً", "ب. مَا يَكُونُ جُمْلَةً فِعْلِيَّةً", "ج. مَا يَكُونُ جَارًّا وَمَجْرُورًا أَوْ ظَرْفًا"], correct: 2, exp: "النَّعْتُ شِبْهُ الْجُمْلَةِ: جَارٌّ وَمَجْرُورٌ أَوْ ظَرْفٌ." },
+            { q: "١١. أَيُّ الْجُمَلِ تَحْتَوِي عَلَى نَعْتٍ جَارٍّ وَمَجْرُورٍ؟", options: ["أ. رَأَيْتُ وَلَدًا فِي الْمَسْجِدِ", "ب. رَأَيْتُ وَلَدًا يَلْعَبُ", "ج. رَأَيْتُ وَلَدًا جَمِيلًا"], correct: 0, exp: "«فِي الْمَسْجِدِ» جَارٌّ وَمَجْرُورٌ." },
+            { q: "١٢. أَيُّ الْجُمَلِ تَحْتَوِي عَلَى نَعْتٍ ظَرْفٍ؟", options: ["أ. رَأَيْتُ عُصْفُورًا فَوْقَ الشَّجَرَةِ", "ب. رَأَيْتُ طَالِبًا مُجْتَهِدًا", "ج. رَأَيْتُ طَالِبًا يَكْتُبُ"], correct: 0, exp: "«فَوْقَ» ظَرْفُ مَكَانٍ." },
+            { q: "١٣. فِي جُمْلَةِ «رَأَيْتُ رَجُلًا فِي الْغَابَةِ»، مَا النَّعْتُ؟", options: ["أ. رَأَيْتُ", "ب. رَجُلًا", "ج. فِي الْغَابَةِ"], correct: 2, exp: "«فِي الْغَابَةِ» شِبْهُ جُمْلَةٍ." },
+            { q: "١٤. النَّعْتُ فِي جُمْلَةِ «رَأَيْتُ وَلَدًا وَجْهُهُ جَمِيلٌ» هُوَ:", options: ["أ. نَعْتٌ مُفْرَدٌ", "ب. نَعْتٌ جُمْلَةٌ اسْمِيَّةٌ", "ج. نَعْتٌ شِبْهُ جُمْلَةٍ"], correct: 1, exp: "«وَجْهُهُ جَمِيلٌ» جُمْلَةٌ اسْمِيَّةٌ." },
+            { q: "١٥. النَّعْتُ فِي جُمْلَةِ «جَاءَ أُسْتَاذٌ يَمْشِي» هُوَ:", options: ["أ. نَعْتٌ جُمْلَةٌ فِعْلِيَّةٌ", "ب. نَعْتٌ مُفْرَدٌ", "ج. نَعْتٌ شِبْهُ جُمْلَةٍ"], correct: 0, exp: "«يَمْشِي» جُمْلَةٌ فِعْلِيَّةٌ." },
+            { q: "١٦. النَّعْتُ يَتْبَعُ الْمَنْعُوتَ فِي:", options: ["أ. الزَّمَنِ فَقَطْ", "ب. التَّعْرِيفِ وَالتَّنْكِيرِ، وَالْإِفْرَادِ وَالتَّثْنِيَةِ وَالْجَمْعِ، وَالتَّذْكِيرِ وَالتَّأْنِيثِ، وَالْإِعْرَابِ", "ج. عَدَدِ الْحُرُوفِ فَقَطْ"], correct: 1, exp: "النَّعْتُ يَتْبَعُ مَنْعُوتَهُ فِي التَّعْرِيف/التَّنْكِير، الْعَدَد، النَّوْع، وَالْإِعْرَاب." },
+            { q: "١٧. فِي جُمْلَةِ «رَأَيْتُ طَالِبًا مُجْتَهِدًا»، مَا الْمَنْعُوتُ؟", options: ["أ. رَأَيْتُ", "ب. طَالِبًا", "ج. مُجْتَهِدًا"], correct: 1, exp: "«طَالِبًا» هُوَ الْمَنْعُوتُ (الْمَوْصُوفُ)." },
+            { q: "١٨. مَا نَوْعُ النَّعْتِ فِي «الْكِتَابُ الْجَدِيدُ»؟", options: ["أ. نَعْتٌ مُفْرَدٌ", "ب. نَعْتٌ جُمْلَةٌ", "ج. نَعْتٌ شِبْهُ جُمْلَةٍ"], correct: 0, exp: "«الْجَدِيدُ» نَعْتٌ مُفْرَدٌ." },
+            { q: "١٩. أَكْمِلِ الْجُمْلَةَ: «هَذَا طَالِبٌ ...»", options: ["أ. يَكْتُبُ الدَّرْسَ", "ب. الْمُجْتَهِدُ", "ج. فِي الْفَصْلِ"], correct: 0, exp: "«طَالِبٌ» نَكِرَةٌ، فَيَكُونُ النَّعْتُ جُمْلَةً «يَكْتُبُ الدَّرْسَ»." },
+            { q: "٢٠. أَيُّ الْجُمَلِ فِيهَا نَعْتٌ شِبْهُ جُمْلَةٍ؟", options: ["أ. جَاءَ رَجُلٌ طَوِيلٌ", "ب. رَأَيْتُ رَجُلًا يَضْحَكُ", "ج. جَلَسْتُ مَعَ رَجُلٍ عِنْدَ الْبَابِ"], correct: 2, exp: "«عِنْدَ الْبَابِ» ظَرْفٌ (شِبْهُ جُمْلَةٍ)." }
+        ];
+
+        let currentQuestion = 0, score = 0;
+        let answeredQuestions = new Array(questions.length).fill(null);
+        let students = ["Aisyah", "Fajar", "Rizky", "Salsa", "Dinda", "Fadli", "Nabila", "Kevin"];
+        let selectedStudentIndex = -1, isSpinning = false, currentAngle = 0;
+        const colors = ["#fecdd3", "#e0e7ff", "#dcfce7", "#fef9c3", "#fae8ff", "#ffe4e6", "#cff4fc", "#f3e8ff"];
+        let canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
+        function drawWheel() {
+            const numSlices = students.length, radius = canvas.width / 2;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (numSlices === 0) {
+                ctx.fillStyle = '#cbd5e1'; ctx.beginPath(); ctx.arc(radius, radius, radius - 5, 0, 2 * Math.PI); ctx.fill();
+                ctx.fillStyle = '#475569'; ctx.font = 'bold 16px Cairo'; ctx.textAlign = 'center'; ctx.fillText('لا يُوجَدُ أَسْمَاءٌ', radius, radius);
+                return;
+            }
+            const sliceAngle = (2 * Math.PI) / numSlices;
+            for (let i = 0; i < numSlices; i++) {
+                const angle = currentAngle + i * sliceAngle;
+                ctx.fillStyle = colors[i % colors.length]; ctx.beginPath(); ctx.moveTo(radius, radius);
+                ctx.arc(radius, radius, radius - 5, angle, angle + sliceAngle); ctx.closePath(); ctx.fill();
+                ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 3; ctx.stroke();
+                ctx.save(); ctx.translate(radius, radius); ctx.rotate(angle + sliceAngle / 2);
+                ctx.textAlign = "right"; ctx.fillStyle = "#1e293b"; ctx.font = "bold 15px Cairo";
+                ctx.fillText(students[i], radius - 25, 5); ctx.restore();
+            }
+        }
+
+        function spinWheel() {
+            if (isSpinning || students.length === 0) return;
+            isSpinning = true;
+            const spinDuration = 3500, targetAngle = currentAngle + ((5 + Math.random() * 4) * 2 * Math.PI), startTime = performance.now();
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                if (elapsed < spinDuration) {
+                    currentAngle += (targetAngle - currentAngle) * (1 - Math.pow(1 - elapsed / spinDuration, 3)) * 0.1;
+                    drawWheel(); requestAnimationFrame(animate);
+                } else {
+                    isSpinning = false; currentAngle = targetAngle % (2 * Math.PI); drawWheel(); determineWinner();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function determineWinner() {
+            const sliceAngle = (2 * Math.PI) / students.length;
+            let normAngle = (1.5 * Math.PI - currentAngle) % (2 * Math.PI);
+            if (normAngle < 0) normAngle += 2 * Math.PI;
+            selectedStudentIndex = Math.floor(normAngle / sliceAngle);
+            document.getElementById('winnerName').textContent = students[selectedStudentIndex];
+            document.getElementById('winnerModal').classList.remove('hidden');
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        }
+
+        function closeWinnerModal() { document.getElementById('winnerModal').classList.add('hidden'); }
+        function removeSelectedStudent() {
+            if (selectedStudentIndex !== -1 && students.length > 0) {
+                students.splice(selectedStudentIndex, 1); selectedStudentIndex = -1; drawWheel();
+            }
+            closeWinnerModal();
+        }
+        function openNameModal() { document.getElementById('namesInput').value = students.join('\n'); document.getElementById('nameModal').classList.remove('hidden'); }
+        function closeNameModal() { document.getElementById('nameModal').classList.add('hidden'); }
+        function saveNames() {
+            students = document.getElementById('namesInput').value.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+            closeNameModal(); drawWheel();
+        }
+
+        function initDots() {
+            const container = document.getElementById('q-dots'); container.innerHTML = '';
+            for (let i = 0; i < questions.length; i++) {
+                const btn = document.createElement('button'); btn.id = `dot-${i}`; btn.onclick = () => goToQuestion(i);
+                btn.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border ${i === currentQuestion ? 'bg-sky-600 text-white border-sky-600' : 'bg-slate-100 text-slate-600 border-slate-200'}`;
+                btn.innerText = i + 1; container.appendChild(btn);
+            }
+        }
+
+        function renderQuestion() {
+            const data = questions[currentQuestion];
+            document.getElementById('current-q-num').innerText = currentQuestion + 1;
+            document.getElementById('question-text').innerText = data.q;
+            document.getElementById('prev-btn').disabled = (currentQuestion === 0);
+            
+            for (let i = 0; i < questions.length; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (dot) {
+                    if (answeredQuestions[i] !== null) {
+                        dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border ${answeredQuestions[i] === questions[i].correct ? 'bg-emerald-500 text-white border-emerald-500' : 'bg-rose-500 text-white border-rose-500'}`;
+                    } else if (i === currentQuestion) {
+                        dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border bg-sky-600 text-white border-sky-600 shadow-md`;
+                    } else {
+                        dot.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center border bg-slate-100 text-slate-600 border-slate-200`;
+                    }
+                }
+            }
+
+            const optContainer = document.getElementById('options-container'); optContainer.innerHTML = '';
+            const userChoice = answeredQuestions[currentQuestion];
+
+            data.options.forEach((optText, index) => {
+                const button = document.createElement('button');
+                button.className = "w-full text-right p-4 rounded-xl border-2 transition-all flex items-center justify-between font-arabic text-lg font-semibold ";
+                if (userChoice === null) {
+                    button.className += "bg-white border-slate-200 hover:border-sky-400 hover:bg-sky-50 text-slate-800";
+                    button.onclick = () => selectOption(index);
+                } else {
+                    if (index === data.correct) button.className += "bg-emerald-50 border-emerald-500 text-emerald-950 font-bold";
+                    else if (index === userChoice) button.className += "bg-rose-50 border-rose-500 text-rose-950";
+                    else button.className += "bg-slate-50 border-slate-200 text-slate-400 opacity-60";
+                }
+                button.innerHTML = `<span>${optText}</span><span class="text-sm">${userChoice !== null && index === data.correct ? '✅ صَحِيحٌ' : ''}${userChoice !== null && index === userChoice && userChoice !== data.correct ? '❌ خَطَأٌ' : ''}</span>`;
+                optContainer.appendChild(button);
+            });
+
+            const expBox = document.getElementById('explanation-box');
+            if (userChoice !== null) {
+                expBox.classList.remove('hidden');
+                const isCorrect = (userChoice === data.correct);
+                expBox.className = `mt-4 p-4 rounded-xl text-sm border font-arabic transition-all ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'}`;
+                expBox.innerHTML = `<div class="font-bold mb-1">${isCorrect ? '🎉 إِجَابَةٌ صَحِيحَةٌ!' : '⚠️ إِجَابَةٌ خَاطِئَةٌ!'}</div><div><strong>الشَّرْحُ:</strong> ${data.exp}</div>`;
+            } else expBox.classList.add('hidden');
+        }
+
+        function selectOption(index) {
+            if (answeredQuestions[currentQuestion] !== null) return;
+            answeredQuestions[currentQuestion] = index;
+            if (index === questions[currentQuestion].correct) {
+                score += 5; document.getElementById('score-val').innerText = score;
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+            }
+            renderQuestion();
+        }
+
+        function goToQuestion(index) { currentQuestion = index; renderQuestion(); }
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); }
+            else alert(`أَحْسَنْتَ! لَقَدْ أَتْمَمْتَ جَمِيعَ الأَسْئِلَةِ.\nمَجْمُوعُ النِّقَاطِ: ${score} / 100`);
+        }
+        function prevQuestion() { if (currentQuestion > 0) { currentQuestion--; renderQuestion(); } }
+
+        function switchTab(tabName) {
+            const tabMateri = document.getElementById('tab-materi'), tabGame = document.getElementById('tab-game');
+            const btnMateri = document.getElementById('btn-tab-materi'), btnGame = document.getElementById('btn-tab-game');
+            if (tabName === 'materi') {
+                tabMateri.classList.remove('hidden'); tabGame.classList.add('hidden');
+                btnMateri.className = "px-5 py-2 rounded-lg text-sm font-bold transition bg-sky-600 text-white shadow-sm";
+                btnGame.className = "px-5 py-2 rounded-lg text-sm font-bold transition text-slate-600 hover:text-slate-900";
+            } else {
+                tabMateri.classList.add('hidden'); tabGame.classList.remove('hidden');
+                btnGame.className = "px-5 py-2 rounded-lg text-sm font-bold transition bg-sky-600 text-white shadow-sm";
+                btnMateri.className = "px-5 py-2 rounded-lg text-sm font-bold transition text-slate-600 hover:text-slate-900";
+                setTimeout(() => { drawWheel(); }, 50);
+            }
+        }
+
+        window.onload = function() { drawWheel(); initDots(); renderQuestion(); };
+    </script>
+</body>
+</html>
